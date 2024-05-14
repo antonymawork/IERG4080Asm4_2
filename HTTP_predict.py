@@ -10,7 +10,7 @@ REDIS_DB = 0
 r = redis.Redis(host=REDIS_HOST, 
             port=REDIS_PORT, 
             db=REDIS_DB, 
-            password=ierg4080, 
+            password='ierg4080', 
             health_check_interval=10,
             socket_timeout=1000, socket_keepalive=True,
             socket_connect_timeout=1000, retry_on_timeout=True
