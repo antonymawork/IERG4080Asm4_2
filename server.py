@@ -8,7 +8,18 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # Prevent caching
 
 # Create Redis connection
-r = redis.Redis()
+REDIS_HOST = '44.215.160.99'
+REDIS_PORT = 6379
+REDIS_DB = 0
+
+r = redis.Redis(host=REDIS_HOST, 
+            port=REDIS_PORT, 
+            db=REDIS_DB, 
+            password=ierg4080, 
+            health_check_interval=10,
+            socket_timeout=1000, socket_keepalive=True,
+            socket_connect_timeout=1000, retry_on_timeout=True
+            )
 
 # Dictionary mapping short forms to full language names
 language_map = {
