@@ -75,11 +75,16 @@ To run the language detection on AWS, follow these steps:
        ```python
        r = redis.Redis()
        ```
-   - Run the server: `python3 server.py`
+6. Open three separate terminals and run each of the following commands in a different terminal:
+   ```
+   python HTTP_predict.py
+   python HTTP_main.py
+   python server.py
+   ```
 
-6. Open a web browser and enter the URL: `http://{ML Application Instance's Elastic IP}:5000`
+7. Open a web browser and enter the URL: `http://{ML Application Instance's Elastic IP}:5000`
 
-7. Type in some text content into the text field and click "Submit". The result will display the probabilities of the most likely languages detected.
+8. Type in some text content into the text field and click "Submit". The result will display the probabilities of the most likely languages detected.
 
 ## Reference
 
