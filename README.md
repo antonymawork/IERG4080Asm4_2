@@ -57,7 +57,24 @@ To run the language detection on AWS, follow these steps:
    - Create a virtual environment: `python3 -m venv article2topic`
    - Activate the virtual environment: `source ./article2topic/bin/activate`
    - Install required packages: `pip install flask redis requests torch transformers`
-   - Modify the `server.py` file to replace the `REDIS_HOST` IP with your Redis instance's Elastic IP.
+   - Modify the Redis connection in the code:
+     - For AWS implementation, uncomment the following code block and replace `{Redis Instance's Elastic IP}` with the actual IP:
+       ```python
+       REDIS_HOST = '{Redis Instance's Elastic IP}'
+       REDIS_PORT = 6379
+       REDIS_DB = 0
+       r = redis.Redis(host=REDIS_HOST,
+                       port=REDIS_PORT,
+                       db=REDIS_DB,
+                       password='ierg4080',
+                       health_check_interval=10,
+                       socket_timeout=1000, socket_keepalive=True,
+                       socket_connect_timeout=1000, retry_on_timeout=True)
+       ```
+     - For local implementation, ensure the following code block is uncommented:
+       ```python
+       r = redis.Redis()
+       ```
    - Run the server: `python3 server.py`
 
 6. Open a web browser and enter the URL: `http://{ML Application Instance's Elastic IP}:5000`
@@ -67,6 +84,3 @@ To run the language detection on AWS, follow these steps:
 ## Reference
 
 This project uses the [papluca/xlm-roberta-base-language-detection](https://huggingface.co/papluca/xlm-roberta-base-language-detection) model from Hugging Face.
-```
-
-This README provides an overview of the language detection project, instructions for local setup and AWS setup, and references the open-source model used. Feel free to customize and expand upon this README based on your specific project details and requirements.
