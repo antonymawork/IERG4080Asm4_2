@@ -1,6 +1,3 @@
-Here is a suggested README file based on the information you provided:
-
-
 # Language Detection using Machine Learning
 
 This repository demonstrates language detection using machine learning to classify text content into different languages. The model used is based on the [papluca/xlm-roberta-base-language-detection](https://huggingface.co/papluca/xlm-roberta-base-language-detection) model from Hugging Face.
